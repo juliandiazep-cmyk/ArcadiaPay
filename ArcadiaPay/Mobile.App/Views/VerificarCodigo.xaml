@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
+             x:Class="Mobile.App.Views.VerificarCodigo"
+             SafeAreaEdges="None"
+             Shell.NavBarIsVisible="false">
+
+    <ContentPage.Resources>
+        <!-- Cada casilla del código -->
+        <Style x:Key="Caja" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="#F2FBF7" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 14" />
+            <Setter Property="Stroke" Value="Transparent" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="HeightRequest" Value="56" />
+        </Style>
+        <Style x:Key="Digito" TargetType="Label">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#2B4238" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFC2D6" Offset="0.0" />
+            <GradientStop Color="#FFE8D6" Offset="0.6" />
+            <GradientStop Color="#FFDFC4" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Transparent"
+                                   StatusBarStyle="DarkContent"
+                                   ApplyOn="OnPageNavigatedTo" />
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <ScrollView Margin="0,60,0,0">
+            <VerticalStackLayout Padding="29" Spacing="30">
+
+                <Button x:Name="BotonAtras"
+                        WidthRequest="48" HeightRequest="48" CornerRadius="24" Padding="0"
+                        BackgroundColor="White" HorizontalOptions="Start"
+                        ImageSource="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Arrow_back}, Color=#831843, Size=22}">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.13" />
+                    </Button.Shadow>
+                </Button>
+
+                <Border BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                        StrokeThickness="0" Padding="29">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Spacing="16">
+                        <Image Source="logo_arcadia.jpg" HeightRequest="120" WidthRequest="120"
+                               Aspect="AspectFit" HorizontalOptions="Center" />
+
+                        <Label Text="Verifica tu correo" FontSize="25" FontAttributes="Bold"
+                               TextColor="#831843" HorizontalTextAlignment="Center" />
+
+                        <!-- El texto con el correo se completa desde el código -->
+                        <Label x:Name="TextoSubtitulo" FontSize="15.3" TextColor="#168B94"
+                               HorizontalTextAlignment="Center" />
+
+                        <!--
+                            Truco: un solo Entry invisible (Opacity 0) encima de las 6 casillas recibe lo que
+                            se escribe, y el código pinta cada dígito en su casilla. Así funcionan solos el
+                            borrar, el pegar y el autocompletado del código, sin mover el foco entre casillas.
+                        -->
+                        <Grid x:Name="Cajas" ColumnDefinitions="*,*,*,*,*,*" ColumnSpacing="8" Margin="0,6,0,0">
+                            <Border Grid.Column="0" Style="{StaticResource Caja}"><Label Style="{StaticResource Digito}" /></Border>
+                            <Border Grid.Column="1" Style="{StaticResource Caja}"><Label Style="{StaticResource Digito}" /></Border>
+                            <Border Grid.Column="2" Style="{StaticResource Caja}"><Label Style="{StaticResource Digito}" /></Border>
+                            <Border Grid.Column="3" Style="{StaticResource Caja}"><Label Style="{StaticResource Digito}" /></Border>
+                            <Border Grid.Column="4" Style="{StaticResource Caja}"><Label Style="{StaticResource Digito}" /></Border>
+                            <Border Grid.Column="5" Style="{StaticResource Caja}"><Label Style="{StaticResource Digito}" /></Border>
+
+                            <Entry x:Name="CampoCodigo" Grid.ColumnSpan="6" HeightRequest="56"
+                                   Opacity="0" MaxLength="6" Keyboard="Numeric" />
+                        </Grid>
+
+                        <Button x:Name="BotonVerificar"
+                                HeightRequest="52" Text="Verificar código"
+                                FontAttributes="Bold" FontSize="19" CornerRadius="20" TextColor="White">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#EC4899" Offset="0.0" />
+                                    <GradientStop Color="#F97316" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Shadow>
+                                <Shadow Brush="#EC4899" Opacity="0.3" Radius="12" Offset="0,6" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                            <Label Text="¿No lo recibiste?" TextColor="#868B94" FontSize="15" VerticalOptions="Center" />
+                            <Button x:Name="BotonReenviar" Text="Reenviar código"
+                                    BackgroundColor="Transparent" TextColor="#831843"
+                                    FontAttributes="Bold" FontSize="15" HeightRequest="40" Padding="0" />
+                        </HorizontalStackLayout>
+
+                        <Button x:Name="BotonVolver"
+                                Text="‹  Volver a iniciar sesión"
+                                BackgroundColor="Transparent" TextColor="#831843"
+                                FontAttributes="Bold" FontSize="15" HeightRequest="40" Padding="0" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

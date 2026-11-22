@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
+             x:Class="Mobile.App.Views.MenuPrincipal"
+             SafeAreaEdges="None"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+
+    <!-- Mismo fondo degradado del inicio de sesión -->
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFC2D6" Offset="0.0" />
+            <GradientStop Color="#FFE8D6" Offset="0.6" />
+            <GradientStop Color="#FFDFC4" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Transparent"
+                                   StatusBarStyle="DarkContent"
+                                   ApplyOn="OnPageNavigatedTo" />
+    </ContentPage.Behaviors>
+
+    <!-- Fila 0: la sección activa | Fila 1: la barra de navegación -->
+    <Grid SafeAreaEdges="None"
+          RowDefinitions="*,Auto"
+          RowSpacing="0">
+
+        <!--
+            Las 5 secciones están una encima de otra en la misma celda.
+            Solo una tiene IsVisible="True"; el código cambia cuál se ve.
+            El orden (0 a 4) coincide con el ClassId de los botones de la barra.
+        -->
+        <Grid x:Name="Secciones" Grid.Row="0" Margin="29,60,29,20">
+            <!-- Sección 0 · Inicio -->
+            <Border IsVisible="True" BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0" Padding="29">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                </Border.Shadow>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="14">
+                    <Label Text="{x:Static m:MaterialOutlined.Home}" FontFamily="MaterialOutlined"
+                           FontSize="72" TextColor="#EC4899" HorizontalOptions="Center" />
+                    <Label Text="Inicio" FontSize="26" FontAttributes="Bold"
+                           TextColor="#168B94" HorizontalOptions="Center" />
+                    <Label Text="Bienvenido a Adornos Arcadia. Aquí verás las novedades de la tienda." FontSize="15.3" TextColor="#868B94"
+                           HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Sección 1 · Catálogo -->
+            <Border IsVisible="False" BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0" Padding="29">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                </Border.Shadow>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="14">
+                    <Label Text="{x:Static m:MaterialOutlined.Storefront}" FontFamily="MaterialOutlined"
+                           FontSize="72" TextColor="#EC4899" HorizontalOptions="Center" />
+                    <Label Text="Catálogo" FontSize="26" FontAttributes="Bold"
+                           TextColor="#168B94" HorizontalOptions="Center" />
+                    <Label Text="Aquí se mostrarán los productos disponibles." FontSize="15.3" TextColor="#868B94"
+                           HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Sección 2 · Carrito -->
+            <Border IsVisible="False" BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0" Padding="29">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                </Border.Shadow>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="14">
+                    <Label Text="{x:Static m:MaterialOutlined.Shopping_cart}" FontFamily="MaterialOutlined"
+                           FontSize="72" TextColor="#EC4899" HorizontalOptions="Center" />
+                    <Label Text="Carrito" FontSize="26" FontAttributes="Bold"
+                           TextColor="#168B94" HorizontalOptions="Center" />
+                    <Label Text="Tu carrito está vacío por ahora." FontSize="15.3" TextColor="#868B94"
+                           HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Sección 3 · Historial -->
+            <Border IsVisible="False" BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0" Padding="29">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                </Border.Shadow>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="14">
+                    <Label Text="{x:Static m:MaterialOutlined.History}" FontFamily="MaterialOutlined"
+                           FontSize="72" TextColor="#EC4899" HorizontalOptions="Center" />
+                    <Label Text="Historial" FontSize="26" FontAttributes="Bold"
+                           TextColor="#168B94" HorizontalOptions="Center" />
+                    <Label Text="Aquí aparecerán tus compras anteriores." FontSize="15.3" TextColor="#868B94"
+                           HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Sección 4 · Cuenta -->
+            <Border IsVisible="False" BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0" Padding="29">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                </Border.Shadow>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="14">
+                    <Label Text="{x:Static m:MaterialOutlined.Person}" FontFamily="MaterialOutlined"
+                           FontSize="72" TextColor="#EC4899" HorizontalOptions="Center" />
+                    <Label Text="Cuenta" FontSize="26" FontAttributes="Bold"
+                           TextColor="#168B94" HorizontalOptions="Center" />
+                    <Label Text="Aquí podrás ver y editar los datos de tu cuenta." FontSize="15.3" TextColor="#868B94"
+                           HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+
+                    <!-- Cierra la sesión (temporal): la lógica está en MenuPrincipal.xaml.cs -->
+                    <Button x:Name="BotonCerrarSesion"
+                            HeightRequest="52"
+                            Text="Cerrar sesión"
+                            FontAttributes="Bold"
+                            FontSize="17"
+                            CornerRadius="20"
+                            TextColor="White"
+                            Margin="0,18,0,0">
+
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#EC4899" Offset="0.0" />
+                                <GradientStop Color="#F97316" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+
+                        <Button.Shadow>
+                            <Shadow Brush="#EC4899" Opacity="0.3" Radius="12" Offset="0,6" />
+                        </Button.Shadow>
+
+                    </Button>
+                </VerticalStackLayout>
+            </Border>
+
+        </Grid>
+
+        <!--
+            Barra inferior ANCLADA: ocupa todo el ancho y queda pegada al borde inferior del teléfono
+            (sin márgenes, sin forma de globo). Solo tiene las esquinas superiores redondeadas.
+            SafeAreaEdges="Container" agrega por dentro el espacio de la barra de gestos/botones de
+            Android, así el fondo blanco llega hasta abajo pero los botones no quedan tapados.
+        -->
+        <Border Grid.Row="1"
+                BackgroundColor="White"
+                StrokeShape="RoundRectangle 28,28,0,0"
+                StrokeThickness="0"
+                SafeAreaEdges="Container">
+
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,-2" Radius="10" Opacity="0.10" />
+            </Border.Shadow>
+
+            <!--
+                5 columnas iguales, una por pestaña.
+                Cada Border tiene un ClassId (0 a 4) que es el índice de la sección.
+                El toque se conecta por código en MenuPrincipal.xaml.cs (ConectarToques).
+                Estructura de cada ítem: Border > VerticalStackLayout > [Label ícono, Label texto]
+                (el código de MenuPrincipal.xaml.cs depende de este orden).
+            -->
+            <Grid x:Name="BarraNav"
+                  ColumnDefinitions="*,*,*,*,*"
+                  ColumnSpacing="2"
+                  Padding="10,10,10,8"
+                  VerticalOptions="Center">
+
+                <!-- 0 · Inicio -->
+                <Border Grid.Column="0" ClassId="0" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="0,8">
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static m:MaterialOutlined.Home}" FontFamily="MaterialOutlined"
+                               FontSize="24" TextColor="#9AA3AE" HorizontalOptions="Center" />
+                        <Label Text="Inicio" FontSize="11" FontAttributes="Bold"
+                               TextColor="#9AA3AE" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- 1 · Catálogo -->
+                <Border Grid.Column="1" ClassId="1" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="0,8">
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static m:MaterialOutlined.Storefront}" FontFamily="MaterialOutlined"
+                               FontSize="24" TextColor="#9AA3AE" HorizontalOptions="Center" />
+                        <Label Text="Catálogo" FontSize="11" FontAttributes="Bold"
+                               TextColor="#9AA3AE" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- 2 · Carrito -->
+                <Border Grid.Column="2" ClassId="2" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="0,8">
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static m:MaterialOutlined.Shopping_cart}" FontFamily="MaterialOutlined"
+                               FontSize="24" TextColor="#9AA3AE" HorizontalOptions="Center" />
+                        <Label Text="Carrito" FontSize="11" FontAttributes="Bold"
+                               TextColor="#9AA3AE" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- 3 · Historial -->
+                <Border Grid.Column="3" ClassId="3" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="0,8">
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static m:MaterialOutlined.History}" FontFamily="MaterialOutlined"
+                               FontSize="24" TextColor="#9AA3AE" HorizontalOptions="Center" />
+                        <Label Text="Historial" FontSize="11" FontAttributes="Bold"
+                               TextColor="#9AA3AE" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- 4 · Cuenta -->
+                <Border Grid.Column="4" ClassId="4" StrokeThickness="0" StrokeShape="RoundRectangle 24" Padding="0,8">
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="{x:Static m:MaterialOutlined.Person}" FontFamily="MaterialOutlined"
+                               FontSize="24" TextColor="#9AA3AE" HorizontalOptions="Center" />
+                        <Label Text="Cuenta" FontSize="11" FontAttributes="Bold"
+                               TextColor="#9AA3AE" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>
+

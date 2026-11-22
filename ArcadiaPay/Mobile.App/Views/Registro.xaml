@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
+             x:Class="Mobile.App.Views.Registro"
+             SafeAreaEdges="None"
+             Shell.NavBarIsVisible="false">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFC2D6" Offset="0.0" />
+            <GradientStop Color="#FFE8D6" Offset="0.6" />
+            <GradientStop Color="#FFDFC4" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Transparent"
+                                   StatusBarStyle="DarkContent"
+                                   ApplyOn="OnPageNavigatedTo">
+        </toolkit:StatusBarBehavior>
+    </ContentPage.Behaviors>
+
+    <!-- El teclado lo maneja MainActivity (Platforms/Android): sube toda la interfaz sobre el teclado. -->
+    <Grid>
+        <ScrollView>
+            <Grid SafeAreaEdges="None"
+                  RowDefinitions="Auto,*"
+                  Padding="29"
+                  RowSpacing="30"
+                  Margin="0,60,0,0">
+
+                <Border Grid.Row="0"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 30"
+                        HeightRequest="58"
+                        StrokeThickness="0">
+
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.13" />
+                    </Border.Shadow>
+
+                    <HorizontalStackLayout Spacing="4"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Margin="6">
+
+                        <Button HeightRequest="48"
+                                WidthRequest="166"
+                                x:Name="BotonIrLogin"
+                                Text="Iniciar sesión"
+                                FontAttributes="Bold"
+                                TextColor="#9AA3AE"
+                                FontSize="16"
+                                CornerRadius="30"
+                                BackgroundColor="White">
+
+                        </Button>
+
+                        <Button  HeightRequest="48"
+                                 WidthRequest="166"
+                                 Text="Registrarse"
+                                 TextColor="White"
+                                 FontAttributes="Bold"
+                                 FontSize="16"
+                                 CornerRadius="30">
+
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#EC4899" Offset="0.0" />
+                                    <GradientStop Color="#F97316" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+
+                        </Button>
+
+                    </HorizontalStackLayout>
+
+
+                </Border>
+
+
+                <Border Grid.Row="1"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 40"
+                        StrokeThickness="0"
+                        Padding="29,50,29,29">
+
+                    <Grid RowDefinitions="Auto,*"
+                          RowSpacing="12">
+                
+                        <VerticalStackLayout Spacing="12"
+                                             Grid.Row="0">
+                    
+
+                            <Label Text="¡Te damos la bienvenida!"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"
+                                   FontSize="25"/>
+
+                            <Label Text="Completa tus datos para empezar"
+                                   HorizontalOptions="Start"
+                                   TextColor="#168B94"
+                                   FontSize="15.5"/>
+                    
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="1"
+                                             Spacing="15"
+                                             VerticalOptions="Center"
+                                             Margin="0,0,0,16">
+
+                        <Border BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16"
+                                Padding="0,3,0,3">
+
+                            <material:TextField x:Name="CampoNombre"
+                                                Title="Nombre completo"
+                                                FontSize="18"
+                                                Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Person}, Color= #8E8EA9}"
+                                                AllowClear="True"
+                                                CharacterSpacing="0.3"
+                                                BorderThickness="0"
+                                                TitleColor="#8E8EA9"
+                                                TitleFontSize="16.5"
+                                                AccentColor="DeepSkyBlue"
+                                                VerticalOptions="Center">
+
+                            </material:TextField>
+
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+
+                        </Border>
+
+                        <Border BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16"
+                                Padding="0,3,0,3">
+
+                            <material:TextField x:Name="CampoCedula"
+                                            Title="Cédula de identidad"
+                                            FontSize="18"
+                                            Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Id_card}, Color= #8E8EA9}"
+                                            AllowClear="True"
+                                            CharacterSpacing="0.3"
+                                            BorderThickness="0"
+                                            TitleColor="#8E8EA9"
+                                            TitleFontSize="16.5"
+                                            AccentColor="DeepSkyBlue"
+                                            VerticalOptions="Center"
+                                            Keyboard="Numeric">
+
+                            </material:TextField>
+
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+
+                        </Border>
+
+                        <Border BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16"
+                                Padding="0,3,0,3">
+
+                            <material:TextField x:Name="CampoCorreo"
+                                                Title="Email"
+                                                FontSize="18"
+                                                Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Mail}, Color= #8E8EA9}"
+                                                AllowClear="True"
+                                                CharacterSpacing="0.3"
+                                                BorderThickness="0"
+                                                TitleColor="#8E8EA9"
+                                                TitleFontSize="16.5"
+                                                AccentColor="DeepSkyBlue"
+                                                VerticalOptions="Center"
+                                                Keyboard="Email">
+
+                            </material:TextField>
+
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+
+                        </Border>
+
+                        <Border BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16"
+                                Padding="0,3,0,3">
+
+                            <material:TextField x:Name="CampoClave"
+                                            MaxLength="10"
+                                            Title="Contraseña"
+                                            FontSize="18"
+                                            Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Lock}, Color= #8E8EA9}"
+                                            CharacterSpacing="0.3"
+                                            BorderThickness="0"
+                                            TitleColor="#8E8EA9"
+                                            TitleFontSize="16.5"
+                                            AccentColor="DeepSkyBlue"
+                                            VerticalOptions="Center">
+
+                                <material:TextField.Attachments>
+                                    <material:TextFieldPasswordShowHideAttachment />
+                                </material:TextField.Attachments>
+
+                            </material:TextField>
+
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+
+                        </Border>
+
+                        <Border BackgroundColor="White"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 16"
+                                Padding="0,3,0,3">
+
+                            <material:TextField x:Name="CampoConfirmar"
+                                                MaxLength="10"
+                                                Title="Confirmar contraseña"
+                                                FontSize="18"
+                                                Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Lock_reset}, Color= #8E8EA9}"
+                                                CharacterSpacing="0.3"
+                                                BorderThickness="0"
+                                                TitleColor="#8E8EA9"
+                                                TitleFontSize="16.5"
+                                                AccentColor="DeepSkyBlue"
+                                                VerticalOptions="Center">
+
+                                <material:TextField.Attachments>
+                                    <material:TextFieldPasswordShowHideAttachment />
+                                </material:TextField.Attachments>
+
+                            </material:TextField>
+
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+
+                        </Border>
+
+                        <Button Grid.Row="4" Grid.ColumnSpan="2"
+                                HeightRequest="60"
+                                x:Name="BotonCrearCuenta"
+                                Text="Crear cuenta"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                CornerRadius="20"
+                                TextColor="White" 
+                                Margin="0,12,0,18">
+
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#EC4899" Offset="0.0" />
+                                    <GradientStop Color="#F97316" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+
+                            <Button.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Button.Shadow>
+
+                        </Button>
+
+
+                    </VerticalStackLayout>
+
+                    </Grid>
+
+
+                </Border>
+
+
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+
+</ContentPage>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:m="clr-namespace:UraniumUI.Icons.MaterialSymbols;assembly=UraniumUI.Icons.MaterialSymbols"
+             x:Class="Mobile.App.Views.NuevaClave"
+             SafeAreaEdges="None"
+             Shell.NavBarIsVisible="false">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFC2D6" Offset="0.0" />
+            <GradientStop Color="#FFE8D6" Offset="0.6" />
+            <GradientStop Color="#FFDFC4" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Transparent"
+                                   StatusBarStyle="DarkContent"
+                                   ApplyOn="OnPageNavigatedTo" />
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <ScrollView Margin="0,60,0,0">
+            <VerticalStackLayout Padding="29" Spacing="30">
+
+                <Button x:Name="BotonAtras"
+                        WidthRequest="48" HeightRequest="48" CornerRadius="24" Padding="0"
+                        BackgroundColor="White" HorizontalOptions="Start"
+                        ImageSource="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Arrow_back}, Color=#831843, Size=22}">
+                    <Button.Shadow>
+                        <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.13" />
+                    </Button.Shadow>
+                </Button>
+
+                <Border BackgroundColor="White" StrokeShape="RoundRectangle 40"
+                        StrokeThickness="0" Padding="29">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                    </Border.Shadow>
+
+                    <VerticalStackLayout Spacing="16">
+                        <Image Source="logo_arcadia.jpg" HeightRequest="120" WidthRequest="120"
+                               Aspect="AspectFit" HorizontalOptions="Center" />
+
+                        <Label Text="Nueva contraseña" FontSize="25" FontAttributes="Bold"
+                               TextColor="#831843" HorizontalTextAlignment="Center" />
+
+                        <Label Text="Código verificado. Crea una contraseña nueva para tu cuenta."
+                               FontSize="15.3" TextColor="#168B94" HorizontalTextAlignment="Center" />
+
+                        <Border BackgroundColor="#F2FBF7" StrokeThickness="1"
+                                StrokeShape="RoundRectangle 16" Padding="0,1.4,0,1.4" Margin="0,6,0,0">
+                            <material:TextField x:Name="CampoClave"
+                                                Title="Nueva contraseña"
+                                                FontSize="16"
+                                                Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Lock}, Color= #8E8EA9}"
+                                                MaxLength="10"
+                                                CharacterSpacing="0.2"
+                                                BorderThickness="0"
+                                                TitleColor="#8EA89D"
+                                                TitleFontSize="16.5"
+                                                AccentColor="DeepSkyBlue"
+                                                VerticalOptions="Center"
+                                                TextColor="#2B4238">
+                                <material:TextField.Attachments>
+                                    <material:TextFieldPasswordShowHideAttachment />
+                                </material:TextField.Attachments>
+                            </material:TextField>
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+                        </Border>
+
+                        <Border BackgroundColor="#F2FBF7" StrokeThickness="1"
+                                StrokeShape="RoundRectangle 16" Padding="0,1.4,0,1.4">
+                            <material:TextField x:Name="CampoConfirmar"
+                                                Title="Confirmar contraseña"
+                                                FontSize="16"
+                                                Icon="{FontImageSource FontFamily=MaterialOutlined, Glyph={x:Static m:MaterialOutlined.Lock_reset}, Color= #8E8EA9}"
+                                                MaxLength="10"
+                                                CharacterSpacing="0.2"
+                                                BorderThickness="0"
+                                                TitleColor="#8EA89D"
+                                                TitleFontSize="16.5"
+                                                AccentColor="DeepSkyBlue"
+                                                VerticalOptions="Center"
+                                                TextColor="#2B4238">
+                                <material:TextField.Attachments>
+                                    <material:TextFieldPasswordShowHideAttachment />
+                                </material:TextField.Attachments>
+                            </material:TextField>
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Offset="0,3" Radius="10" Opacity="0.11" />
+                            </Border.Shadow>
+                        </Border>
+
+                        <Button x:Name="BotonGuardar"
+                                HeightRequest="52" Text="Guardar contraseña"
+                                FontAttributes="Bold" FontSize="19" CornerRadius="20" TextColor="White">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#EC4899" Offset="0.0" />
+                                    <GradientStop Color="#F97316" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <Button.Shadow>
+                                <Shadow Brush="#EC4899" Opacity="0.3" Radius="12" Offset="0,6" />
+                            </Button.Shadow>
+                        </Button>
+
+                        <Button x:Name="BotonVolver"
+                                Text="‹  Volver a iniciar sesión"
+                                BackgroundColor="Transparent" TextColor="#831843"
+                                FontAttributes="Bold" FontSize="15" HeightRequest="40" Padding="0" />
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

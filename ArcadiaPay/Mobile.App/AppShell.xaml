@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Mobile.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Views="clr-namespace:Mobile.App.Views"
+    FlyoutBehavior="Disabled">
+
+    <!--
+        Cada ShellContent es una pantalla con su "ruta".
+        La PRIMERA de la lista es la que se abre al iniciar la app (el login).
+        Para ir a una pantalla desde el código se usa:  await Shell.Current.GoToAsync("//NombreRuta");
+        FlyoutBehavior="Disabled" evita que aparezca el menú lateral del Shell.
+    -->
+    <ShellContent Route="IniciarSesion"
+                  ContentTemplate="{DataTemplate Views:IniciarSesion}" />
+
+    <ShellContent Route="Registro"
+                  ContentTemplate="{DataTemplate Views:Registro}" />
+
+    <ShellContent Route="MenuPrincipal"
+                  ContentTemplate="{DataTemplate Views:MenuPrincipal}" />
+
+    <!-- Verificación de correo y recuperación de contraseña -->
+    <ShellContent Route="VerificarCodigo"
+                  ContentTemplate="{DataTemplate Views:VerificarCodigo}" />
+
+    <ShellContent Route="OlvidoClave"
+                  ContentTemplate="{DataTemplate Views:OlvidoClave}" />
+
+    <ShellContent Route="NuevaClave"
+                  ContentTemplate="{DataTemplate Views:NuevaClave}" />
+
+</Shell>
